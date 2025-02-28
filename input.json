@@ -1,0 +1,10 @@
+{
+    "nodes": [
+      { "id": "1", "name": "Start", "source": null, "target": "2", "properties": { "type": "entry" } },
+      { "id": "2", "name": "CORS Middleware", "source": "1", "target": "3", "properties": { "type": "middleware", "allowed_origins": ["http://example.com"] } },
+      { "id": "3", "name": "Auth Middleware", "source": "2", "target": ["4", "5"], "properties": { "type": "middleware", "auth_required": true } },
+      { "id": "4", "name": "Login Route", "source": "3", "target": "6", "properties": { "type": "route", "endpoint": "/login", "method": "POST" } },
+      { "id": "5", "name": "Admin Route", "source": "3", "target": "6", "properties": { "type": "route", "endpoint": "/admin", "method": "GET", "admin_required": true } },
+      { "id": "6", "name": "End", "source": "4", "target": null, "properties": { "type": "exit" } }
+    ]
+}
